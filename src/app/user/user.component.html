@@ -1,0 +1,41 @@
+<h1  class="text-center text-primary font-weight-bold mt-3">List of Users</h1>
+<div class="search">
+    <input class="form-control-sm" type="search"[(ngModel)]='listFilter' placeholder="Search by country" />
+</div>
+<div class="row">
+    <div class="col-md-12">
+      <div class="alert alert-danger" *ngIf="filteredUsers.length === 0" role="alert">
+        No users found.
+      </div>
+
+<div class="table-responsive"  *ngIf="filteredUsers.length > 0">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Country</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr *ngFor="let user of filteredUsers">
+          <td> {{user.name.first}} {{user.name.last}}</td>
+          <td> {{user.email}}</td>
+          <td>{{user.location.country}}</td>
+          <td><img class="rounded-circle border border-dark p-2" [src]='user.picture.thumbnail'></td>
+          <td><button class="btn btn-rounded btn-primary" (click) ='OpenModal(user)'> Details</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+
+
+
+
+
+
